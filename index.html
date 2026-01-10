@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O3vet Clínica Veterinaria</title>
+
+  <style>
+    /* ===== RESET ===== */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+
+  /* ===== BODY ===== */
+  body {
+    background-image: url("https://i.imgur.com/sHAqcfP.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: #333;
+  }
+
+  /* ===== HEADER / NAV ===== */
+  header {
+    background: #EAF5EE;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #000;
+  }
+
+  .logo img {
+    height: 45px;
+  }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+  }
+
+  .nav-links a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .menu-toggle {
+    display: none;
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    color: #000;
+    cursor: pointer;
+  }
+
+  /* ===== SECTIONS ===== */
+  section {
+    background: rgba(234, 245, 238, 0.95);
+    margin: 2rem auto;
+    padding: 3rem 1.5rem;
+    border-radius: 16px;
+    max-width: 1100px;
+  }
+
+  /* ===== SERVICIOS INICIO ===== */
+  .inicio-servicios {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .inicio-servicio {
+    max-width: 750px;
+    margin: auto;
+    text-align: center;
+  }
+
+  .inicio-servicio img,
+  .inicio-video {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin: 1rem 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  }
+
+  .img-contain {
+    object-fit: contain !important;
+    height: auto;
+  }
+
+  /* ===== BOTÓN WHATSAPP ===== */
+  .btn-wsp {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.7rem 1.5rem;
+    background-color: #25D366;
+    color: #fff;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .btn-wsp:hover {
+    background-color: #1ebe5d;
+  }
+
+  /* ===== FORM ===== */
+  form {
+    max-width: 400px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  input, textarea {
+    padding: 0.8rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+  }
+
+  button {
+    padding: 0.8rem;
+    background: #0a2540;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+
+  /* ===== FOOTER ===== */
+  footer {
+    position: relative;
+    background-image: url("https://i.imgur.com/dHyLgPZ.png");
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+  }
+
+  footer::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.45);
+  }
+
+  footer * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: auto;
+  }
+
+  .footer-column a {
+    color: #6bceff;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  /* ===== WHATSAPP FLOAT ===== */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      background: #EAF5EE;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 100%;
+    }
+
+    .nav-links.active {
+      display: flex;
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+
+    .footer-container {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .servicio-bloque {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.servicio-bloque h3 {
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+}
+
+.servicio-bloque p {
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  line-height: 1.6;
+}
+
+.servicio-galeria {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.servicio-galeria img {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+
+
+
+    </style>
+</head>
+
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="https://i.imgur.com/Xd3hyyV.jpeg" alt="o3vet Clínica Veterinaria">
+        <span>O3vet Clínica Veterinaria</span>
+      </div>
+
+
+      <button class="menu-toggle" id="menuToggle">☰</button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#contacto">Contáctanos</a></li>
+        <li><a href="#acerca">Acerca de</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- INICIO -->
+  <section id="inicio" class="active">
+    <h1>Bienvenido a O3vet Clínica Veterinaria</h1>
+    <p>Cuidado integral y medicina veterinaria especializada para tu mascota.</p>
+
+    <div class="inicio-servicios">
+
+      <div class="inicio-servicio">
+        <h3>Ozonoterapia</h3>
+        <img src="https://i.imgur.com/kzdP7oc.jpeg" alt="Ozonoterapia veterinaria">
+        <p>Tratamiento terapéutico que mejora la oxigenación y fortalece el sistema inmune.</p>
+        <a href="https://wa.link/8kjaef" target="_blank" class="btn-wsp">Consulta virtual</a>
+      </div>
+
+      <div class="inicio-servicio">
+        <h3>Medicina integrativa</h3>
+
+        <video class="inicio-video" autoplay muted loop playsinline>
+          <source src="https://i.imgur.com/vOoV3yu.mp4" type="video/mp4">
+          Tu navegador no soporta videos HTML5.
+        </video>
+
+        <p>
+          Enfoque holístico que combina terapias alternativas y medicina convencional.
+        </p>
+
+        <a href="https://wa.link/gxzjqp" target="_blank" class="btn-wsp">
+          Consulta virtual
+        </a>
+      </div>
+
+      <div class="inicio-servicio">
+        <h3>Homeopatía</h3>
+        <img src="https://i.imgur.com/1YBJZ01.png" alt="Homeopatía veterinaria">
+        <p>Tratamientos naturales que estimulan la capacidad de autocuración.</p>
+        <a href="https://wa.link/c5sn7j" target="_blank" class="btn-wsp">Consulta virtual</a>
+      </div>
+
+      <div class="inicio-servicio">
+        <h3>Acupuntura</h3>
+        <img src="https://i.imgur.com/x3RlaNp.png" alt="Acupuntura veterinaria">
+        <p>Terapia milenaria para el manejo del dolor y el equilibrio energético.</p>
+        <a href="https://wa.link/4e595j" target="_blank" class="btn-wsp">Consulta virtual</a>
+      </div>
+
+      <div class="inicio-servicio">
+        <h3>Bioenergética</h3>
+        <img src="https://i.imgur.com/VX4fnrC.jpeg" alt="Bioenergética veterinaria">
+        <p>Evaluación y armonización del campo energético del paciente.</p>
+        <a href="https://wa.link/b75y9t" target="_blank" class="btn-wsp">Consulta virtual</a>
+      </div>
+
+      <div class="inicio-servicio">
+        <h3>Etiología</h3>
+        <img src="https://i.imgur.com/QSujuwi.jpeg" alt="Etiología veterinaria">
+        <p>Análisis profundo del origen de las enfermedades.</p>
+        <a href="https://wa.link/ljjkwe" target="_blank" class="btn-wsp">Consulta virtual</a>
+      </div>
+
+      <div class="inicio-servicio">
+        <h3>Medicina convencional</h3>
+        <img src="https://i.imgur.com/sfLlswz.png" alt="Medicina veterinaria">
+        <p>Diagnóstico y tratamiento clínico basado en evidencia científica.</p>
+        <a href="https://wa.link/n203tv" target="_blank" class="btn-wsp">Consulta virtual</a>
+      </div>
+
+
+
+      <div class="inicio-servicio">
+        <h3>Consulta general y especializada</h3>
+        <img
+        src="https://i.imgur.com/b5v9XNF.jpeg"
+        alt="Consulta veterinaria">
+        <p>Atención integral para todas las etapas de la vida de tu mascota.</p>
+        <a href="https://wa.link/pm0m63" target="_blank" class="btn-wsp">Consulta virtual</a>
+      </div>
+
+      <div class="inicio-servicio">
+        <h3>Cirugías</h3>
+        <img src="https://i.imgur.com/zY5CGbZ.jpeg" alt="Cirugía veterinaria">
+        <p>Procedimientos quirúrgicos con altos estándares de seguridad.</p>
+        <a href="https://wa.link/loge0q" target="_blank" class="btn-wsp">Consulta virtual</a>
+      </div>
+
+      <div class="inicio-servicio">
+        <h3>Fisioterapia – banda con piscina</h3>
+        <img src="https://i.imgur.com/ILKVmIx.jpeg" alt="Fisioterapia veterinaria">
+        <p>Rehabilitación física con tecnología acuática especializada.</p>
+        <a href="https://wa.link/djtemm" target="_blank" class="btn-wsp">Consulta virtual</a>
+      </div>
+
+    </div>
+  </section>
+
+
+ <!-- SERVICIOS -->
+  <section id="servicios" class="hidden">
+    <h2>Nuestros Servicios</h2>
+
+    <!-- PRIMER PISO -->
+    <div class="servicio-bloque">
+      <h3>Primer piso</h3>
+      <p>
+        Servicios de peluquería veterinaria y banda acuática para el bienestar,
+        rehabilitación y cuidado integral de tu mascota.
+      </p>
+
+      <div class="servicio-galeria">
+        <img src="https://i.imgur.com/qFaFCVl.jpeg" alt="Peluquería veterinaria">
+        <img src="https://i.imgur.com/ILKVmIx.jpeg" alt="Banda acuática">
+        <img src="https://i.imgur.com/sfLlswz.png" alt="Cuidado veterinario">
+      </div>
+    </div>
+
+    <!-- SEGUNDO PISO -->
+    <div class="servicio-bloque">
+      <h3>Segundo piso</h3>
+      <p>
+        Atención médica integral que incluye consulta general y especializada,
+        procedimientos quirúrgicos y servicios de fisioterapia.
+      </p>
+
+      <div class="servicio-galeria">
+        <img src="https://i.imgur.com/QSujuwi.jpeg" alt="Consulta veterinaria">
+        <img src="https://i.imgur.com/zY5CGbZ.jpeg" alt="Cirugía veterinaria">
+        <img src="https://i.imgur.com/kzdP7oc.jpeg" alt="Fisioterapia veterinaria">
+      </div>
+    </div>
+
+    <!-- SERVICIO DOMICILIARIO -->
+    <div class="servicio-bloque">
+      <h3>Servicio domiciliario</h3>
+      <p>
+        Nuestra veterinaria cuenta con servicio a domicilio para emergencias,
+        brindando atención oportuna y profesional en la comodidad de tu hogar.
+      </p>
+
+      <div class="servicio-galeria">
+        <img src="https://i.imgur.com/VIj6sk8.jpeg" alt="Veterinaria a domicilio">
+        <img src="https://i.imgur.com/oVz1AAG.jpeg" alt="Emergencias veterinarias">
+        <img src="https://i.imgur.com/Zifv2c7.jpeg" alt="Atención en casa">
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- CONTACTO -->
+  <section id="contacto" class="hidden">
+    <h2>Contáctanos</h2>
+    <form id="contactForm">
+      <input
+        type="text"
+        id="nombre"
+        placeholder="Nombre completo"
+        required
+      >
+
+      <input
+        type="tel"
+        id="telefono"
+        placeholder="Teléfono"
+        required
+      >
+
+      <input
+        type="email"
+        id="correo"
+        placeholder="Correo electrónico"
+        required
+      >
+      <input type="text" id="servicio" placeholder="Servicio que requiere" required>
+
+      <button type="submit">Enviar</button>
+    </form>
+
+  </section>
+
+  <!-- ACERCA DE -->
+  <section id="acerca" class="hidden">
+    <h2>Acerca de O3vet Clínica Veterinaria</h2>
+
+    <p style="max-width:900px; margin: 0 auto 2rem;">
+      En O3vet Clínica Veterinaria brindamos atención integral y especializada,
+      combinando medicina convencional y terapias complementarias para el
+      bienestar y la calidad de vida de tu mascota.
+    </p>
+
+    <h3 style="margin-bottom:1rem;">Nuestra ubicación</h3>
+
+    <div class="map-container">
+      <iframe
+        src="https://www.google.com/maps?q=O3vet+clinica+veterinaria+Bello&output=embed"
+        width="100%"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+  </section>
+
+
+  <footer>
+   <footer class="footer">
+  <div class="footer-container">
+
+   <!-- ENLACES ÚTILES -->
+    <div class="footer-column">
+      <h3>Enlaces útiles</h3>
+      <ul>
+        <li>
+          <a href="https://wa.link/jrsrcl" target="_blank">
+            Agendar cita
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- HORARIOS -->
+    <div class="footer-column">
+      <h3>Horarios de atención</h3>
+      <p>Lunes a Sabados</p>
+      <p>9:00 a.m. – 5:00 p.m.</p>
+    </div>
+
+    <!-- CONTACTO -->
+    <div class="footer-column">
+      <h3>Contáctanos</h3>
+      <p>📞 +57 301 4250 7580</p>
+      <p>✉️ ozonoveterinario2020@gmail.com </p>
+      <p>📍Crr 53#27b-35 segundo piso </p>
+      <p> Medellín, Colombia</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 - O3vet Clínica Veterinaria. Todos los derechos reservados.
+  </div>
+</footer>
+
+  </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+    const links = document.querySelectorAll(".nav-links a");
+    const sections = document.querySelectorAll("section");
+
+    // Menú móvil
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+    });
+
+    // Navegación tipo SPA
+    links.forEach(link => {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        const targetId = link.getAttribute("href").replace("#", "");
+
+        sections.forEach(section => {
+          section.classList.add("hidden");
+        });
+
+        const targetSection = document.getElementById(targetId);
+        if (targetSection) {
+          targetSection.classList.remove("hidden");
+        }
+
+        navLinks.classList.remove("active");
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+    });
+
+    const contactForm = document.getElementById("contactForm");
+
+    contactForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const nombre = document.getElementById("nombre").value;
+      const correo = document.getElementById("correo").value;
+      const telefono = document.getElementById("telefono").value;
+      const servicio = document.getElementById("servicio").value;
+
+      const subject = encodeURIComponent("Contacto desde O3vet Clínica Veterinaria");
+      const body = encodeURIComponent(
+      `Nombre: ${nombre}
+    Teléfono: ${telefono}
+    Correo: ${correo}
+    Servicio requerido: ${servicio}`
+);
+
+
+      window.location.href = `mailto:ozonoveterinario2020@gmail.com ?subject=${subject}&body=${body}`;
+    });
+
+  </script>
+
+
+
+  <!-- BOTÓN FLOTANTE WHATSAPP -->
+<a
+  href="https://wa.link/kf3hh5"
+  class="whatsapp-float"
+  target="_blank"
+  aria-label="Contáctanos por WhatsApp"
+>
+  <img
+    src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+    alt="WhatsApp"
+  >
+</a>
+
+
+</body>
+</html>
