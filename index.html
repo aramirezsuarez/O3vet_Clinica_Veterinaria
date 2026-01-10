@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>O3vet Clínica Veterinaria</title>
 
-  <style>
+   <style>
     /* ===== RESET ===== */
   * {
     margin: 0;
@@ -190,15 +190,34 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 60px;
-    height: 60px;
+
+    width: 52px;
+    height: 52px;
+    max-width: 52px;
+    max-height: 52px;
+
     background-color: #25D366;
     border-radius: 50%;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     z-index: 2000;
+
+    /* 🔑 CLAVE para iOS */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
   }
+
+  .whatsapp-float img {
+    width: 26px;
+    height: 26px;
+    display: block;
+  }
+
+
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 768px) {
@@ -260,8 +279,6 @@
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
-
-
 
 
     </style>
