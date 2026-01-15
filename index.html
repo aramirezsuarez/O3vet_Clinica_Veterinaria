@@ -16,7 +16,7 @@
 
   /* ===== BODY ===== */
   body {
-    background-image: url("https://i.imgur.com/sHAqcfP.jpeg");
+    background: #f3f5f9;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -26,7 +26,7 @@
 
   /* ===== HEADER / NAV ===== */
   header {
-    background: #EAF5EE;
+    background: #002e4b;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -45,7 +45,7 @@
     gap: 0.6rem;
     font-size: 1.2rem;
     font-weight: bold;
-    color: #000;
+    color: #ffffff;
   }
 
   .logo img {
@@ -53,13 +53,14 @@
   }
 
   .nav-links {
+    
     list-style: none;
     display: flex;
     gap: 1rem;
   }
 
   .nav-links a {
-    color: #000;
+    color: #ffffff;
     text-decoration: none;
     font-weight: 500;
   }
@@ -69,13 +70,25 @@
     font-size: 1.5rem;
     background: none;
     border: none;
-    color: #000;
+    color: #ffffff;
     cursor: pointer;
   }
 
+  /* ===== LINK ACTIVO ===== */
+  .nav-links a.active {
+    color: #b0c800;
+    font-weight: 700;
+  }
+
+  .nav-links a:hover {
+    color: #b0c800;
+  }
+
+
   /* ===== SECTIONS ===== */
   section {
-    background: rgba(234, 245, 238, 0.95);
+    /* ===== color- imagen body ===== */
+    background: #f3f5f9;
     margin: 2rem auto;
     padding: 3rem 1.5rem;
     border-radius: 16px;
@@ -153,7 +166,7 @@
   /* ===== FOOTER ===== */
   footer {
     position: relative;
-    background-image: url("https://i.imgur.com/dHyLgPZ.png");
+    background: #002e4b;
     background-size: cover;
     background-position: center;
     color: #fff;
@@ -163,7 +176,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.45);
+    background: #002e4b
   }
 
   footer * {
@@ -180,7 +193,7 @@
   }
 
   .footer-column a {
-    color: #6bceff;
+    color: #b0c800;
     text-decoration: none;
     font-weight: 600;
   }
@@ -224,7 +237,7 @@
     .nav-links {
       display: none;
       flex-direction: column;
-      background: #EAF5EE;
+      background: #002e4b;
       position: absolute;
       top: 60px;
       right: 0;
@@ -280,6 +293,61 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
+.hero {
+  position: relative;
+  min-height: 50vh;
+  width: 150%;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background-image: url("https://i.imgur.com/qEbVuJt.png");
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+section.hero {
+  max-width: none !important;
+  width: 100vw;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+/* Capa oscura */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+/* Contenido centrado y angosto */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;     /* 👉 AQUÍ lo hacemos más angosto */
+  padding: 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+footer .footer-column h3 {
+  color: #b0c800;
+}
+
 
     </style>
 </head>
@@ -305,11 +373,17 @@
     </nav>
   </header>
 
-  <!-- INICIO -->
-  <section id="inicio" class="active">
-    <h1>Bienvenido a O3vet Clínica Veterinaria</h1>
-    <p>Cuidado integral y medicina veterinaria especializada para tu mascota.</p>
+    <!-- INICIO / HERO -->
+    <section id="inicio" class="hero">
+      <div class="hero-overlay"></div>
 
+      <div class="hero-content">
+        <h1>Bienvenido a O3vet Clínica Veterinaria</h1>
+        <p>Cuidado integral y medicina veterinaria especializada para tu mascota.</p>
+      </div>
+    </section>
+
+    <section id="inicio-servicios">
     <div class="inicio-servicios">
 
       <div class="inicio-servicio">
@@ -397,6 +471,7 @@
       </div>
 
     </div>
+  
   </section>
 
 
@@ -449,8 +524,6 @@
       </div>
     </div>
   </section>
-
-
 
   <!-- CONTACTO -->
   <section id="contacto" class="hidden">
@@ -566,21 +639,37 @@
       link.addEventListener("click", (e) => {
         e.preventDefault();
 
+        // Quitar activo a todos los links
+        links.forEach(l => l.classList.remove("active"));
+
+        // Marcar el link clickeado
+        link.classList.add("active");
+
         const targetId = link.getAttribute("href").replace("#", "");
 
+        // Ocultar todas las secciones
         sections.forEach(section => {
           section.classList.add("hidden");
         });
 
-        const targetSection = document.getElementById(targetId);
-        if (targetSection) {
-          targetSection.classList.remove("hidden");
+        // 👉 CASO ESPECIAL: INICIO (hero + servicios)
+        if (targetId === "inicio") {
+          document.getElementById("inicio").classList.remove("hidden");
+          document.getElementById("inicio-servicios").classList.remove("hidden");
+        } else {
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            targetSection.classList.remove("hidden");
+          }
         }
 
+        // Cerrar menú móvil
         navLinks.classList.remove("active");
+
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
     });
+
 
     const contactForm = document.getElementById("contactForm");
 
@@ -603,6 +692,7 @@
 
       window.location.href = `mailto:ozonoveterinario2020@gmail.com ?subject=${subject}&body=${body}`;
     });
+
 
   </script>
 
