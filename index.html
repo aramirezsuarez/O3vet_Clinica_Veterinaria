@@ -348,6 +348,14 @@ footer .footer-column h3 {
   color: #b0c800;
 }
 
+/* ===== IMÁGENES COMPLETAS (sin recorte) ===== */
+.inicio-servicio.img-completa img {
+  height: auto;            /* 👈 deja crecer */
+  object-fit: contain;     /* 👈 NO recorta */
+  background-color: #fff;  /* opcional, evita huecos feos */
+}
+
+
 
     </style>
 </head>
@@ -432,7 +440,7 @@ footer .footer-column h3 {
       </div>
 
       <div class="inicio-servicio">
-        <h3>Etiología</h3>
+        <h3>Etología</h3>
         <img src="https://i.imgur.com/QSujuwi.jpeg" alt="Etiología veterinaria">
         <p>Análisis profundo del origen de las enfermedades.</p>
         <a href="https://wa.link/ljjkwe" target="_blank" class="btn-wsp">Consulta virtual</a>
@@ -445,10 +453,20 @@ footer .footer-column h3 {
         <a href="https://wa.link/n203tv" target="_blank" class="btn-wsp">Consulta virtual</a>
       </div>
 
-      <div class="inicio-servicio">
-        <h3>Ozonoterapia</h3>
-        <img src="https://i.imgur.com/24lmCjl.jpeg" alt="Ozonoterapia veterinaria">
-        <p>Tratamiento terapéutico que mejora la oxigenación y fortalece el sistema inmune.</p>
+      <div class="inicio-servicio img-completa">
+      <h3>Ozonoterapia</h3>
+
+      <img src="https://i.imgur.com/itwIcXF.png" alt="Ozonoterapia veterinaria">
+      <img src="https://i.imgur.com/j4lwd4Y.png" alt="Ozonoterapia veterinaria 2">
+
+      <p>Tratamiento terapéutico que mejora la oxigenación y fortalece el sistema inmune.</p>
+      <a href="https://wa.link/8kjaef" target="_blank" class="btn-wsp">Consulta virtual</a>
+    </div>
+
+       <div class="inicio-servicio">
+        <h3>Embolsada con ozono para heridas</h3>
+        <img src="https://i.imgur.com/eUjUb5k.jpeg" alt="Embolsada con ozono">
+        <p>Tratamiento local con ozono que favorece la cicatrización, controla infecciones y acelera la recuperación de heridas.</p>
         <a href="https://wa.link/8kjaef" target="_blank" class="btn-wsp">Consulta virtual</a>
       </div>
 
