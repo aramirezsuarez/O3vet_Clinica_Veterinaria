@@ -382,6 +382,95 @@ footer .footer-column h3 {
   transform: translateY(-2px);
 }
 
+.acerca-intro {
+  max-width: 900px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  line-height: 1.7;
+}
+
+.acerca-servicio {
+  max-width: 900px;
+  margin: 0 auto 4rem;
+  text-align: center;
+}
+
+.acerca-servicio img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.acerca-servicio h3 {
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+}
+
+.acerca-servicio p {
+  line-height: 1.7;
+}
+
+.ubicacion-titulo {
+  margin: 3rem 0 1rem;
+  text-align: center;
+}
+.acerca-servicio {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  max-width: 1000px;
+  margin: 0 auto 4rem;
+}
+
+.acerca-servicio img {
+  width: 45%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.acerca-texto {
+  width: 55%;
+}
+
+.acerca-texto h3 {
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+
+.acerca-texto p {
+  line-height: 1.7;
+}
+
+/* Alternar imagen a la derecha */
+.acerca-servicio.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .acerca-servicio,
+  .acerca-servicio.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .acerca-servicio img,
+  .acerca-texto {
+    width: 100%;
+  }
+
+  .acerca-servicio img {
+    height: 260px;
+  }
+}
+
+
+
 
 
     </style>
@@ -612,30 +701,178 @@ footer .footer-column h3 {
 
   </section>
 
-  <!-- ACERCA DE -->
-  <section id="acerca" class="hidden">
-    <h2>Acerca de O3vet Clínica Veterinaria</h2>
+ <!-- ACERCA DE -->
+<section id="acerca" class="hidden">
+  <h2>Acerca de O3vet Clínica Veterinaria</h2>
 
-    <p style="max-width:900px; margin: 0 auto 2rem;">
-      En O3vet Clínica Veterinaria brindamos atención integral y especializada,
-      combinando medicina convencional y terapias complementarias para el
-      bienestar y la calidad de vida de tu mascota.
-    </p>
+  <p class="acerca-intro">
+    En O3vet Clínica Veterinaria ofrecemos un enfoque integral en el cuidado
+    de la salud animal, combinando tecnología médica, medicina convencional
+    y terapias complementarias para mejorar la calidad de vida de cada paciente.
+  </p>
 
-    <h3 style="margin-bottom:1rem;">Nuestra ubicación</h3>
+  <!-- SERVICIO -->
+  <div class="acerca-servicio">
+    <img src="https://i.imgur.com/Hzb44IU.jpeg" alt="Lecturas akáshicas veterinarias">
 
-    <div class="map-container">
-      <iframe
-        src="https://www.google.com/maps?q=O3vet+clinica+veterinaria+Bello&output=embed"
-        width="100%"
-        height="450"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+    <div class="acerca-texto">
+      <h3>Lecturas Akáshicas</h3>
+      <p>
+        <strong>¿Qué son?</strong><br>
+        Terapia espiritual que permite acceder a la memoria energética del alma
+        (Akasha) para comprender procesos emocionales, energéticos y espirituales
+        que influyen en la salud y el bienestar del animal.
+
+        <br><br>
+        <strong>¿Cómo se realiza?</strong><br>
+        A través de meditación y una oración sagrada, un terapeuta capacitado
+        canaliza información amorosa y constructiva proveniente de guías espirituales.
+
+        <br><br>
+        <strong>¿Para qué sirve?</strong><br>
+        Ayuda a identificar bloqueos, miedos, traumas o vínculos kármicos,
+        facilitando procesos de sanación profunda y decisiones más conscientes.
+      </p>
+
     </div>
-  </section>
+  </div>
+
+  <!-- SERVICIO (IMAGEN DERECHA) -->
+  <div class="acerca-servicio reverse">
+    <img src="https://i.imgur.com/itwIcXF.png" alt="Ozonoterapia veterinaria">
+
+    <div class="acerca-texto">
+      <h3>Ozonoterapia</h3>
+      <p>
+        <strong>¿Qué es?</strong><br>
+        Terapia natural que utiliza una mezcla de oxígeno y ozono medicinal
+        para tratar diversas afecciones, gracias a sus efectos antiinflamatorios,
+        analgésicos, regenerativos y antimicrobianos.
+
+        <br><br>
+        <strong>Beneficios principales</strong><br>
+        Reduce el dolor y la inflamación, mejora la oxigenación celular,
+        fortalece el sistema inmune y acelera la recuperación de tejidos.
+
+        <br><br>
+        <strong>Aplicaciones</strong><br>
+        Problemas dermatológicos, artrosis, lesiones musculares y tendinosas,
+        infecciones y como tratamiento complementario en enfermedades crónicas.
+      </p>
+
+    </div>
+  </div>
+
+  <div class="acerca-servicio">
+    <img src="https://i.imgur.com/zY5CGbZ.jpeg" alt="Ecografía veterinaria">
+
+    <div class="acerca-texto">
+      <h3>Ecografía</h3>
+      <p>
+        <strong>¿En qué consiste?</strong><br>
+        Método de diagnóstico por imagen no invasivo y seguro que permite
+        evaluar órganos internos y tejidos blandos en tiempo real.
+
+        <br><br>
+        <strong>Principales beneficios</strong><br>
+        Diagnósticos rápidos y precisos sin radiación, menor estrés para el paciente
+        y posibilidad de evaluaciones repetidas sin riesgo.
+
+        <br><br>
+        <strong>Usos frecuentes</strong><br>
+        Evaluación abdominal, estudios reproductivos, control de gestación
+        y guía para procedimientos como punciones o biopsias.
+      </p>
+
+    </div>
+  </div>
+
+  <div class="acerca-servicio reverse">
+    <img src="https://i.imgur.com/lFNuKZK.jpeg" alt="Rayos X veterinarios">
+
+    <div class="acerca-texto">
+      <h3>Rayos X (Rx)</h3>
+      <p>
+        <strong>¿Qué permite diagnosticar?</strong><br>
+        Visualiza huesos, órganos y estructuras internas para detectar fracturas,
+        luxaciones, artritis, tumores, problemas respiratorios o ingestión de cuerpos extraños.
+
+        <br><br>
+        <strong>Ventajas</strong><br>
+        Procedimiento rápido, no invasivo y con resultados inmediatos,
+        gracias a la radiología digital de alta resolución y menor exposición.
+
+        <br><br>
+        <strong>Aplicaciones clínicas</strong><br>
+        Diagnóstico, seguimiento de tratamientos y monitoreo de procesos de recuperación.
+      </p>
+
+    </div>
+  </div>
+
+  <div class="acerca-servicio">
+    <img src="https://i.imgur.com/BYg2kD9.jpeg" alt="Fisioterapia veterinaria">
+
+    <div class="acerca-texto">
+      <h3>Fisioterapia</h3>
+      <p>
+        <strong>¿Qué es la fisioterapia veterinaria?</strong><br>
+        Especialidad enfocada en aliviar el dolor, mejorar la movilidad
+        y recuperar funciones físicas mediante ejercicios y terapias físicas.
+
+        <br><br>
+        <strong>Beneficios</strong><br>
+        Fortalece músculos, mejora la coordinación, reduce la inflamación
+        y aumenta la calidad de vida en animales con lesiones o enfermedades crónicas.
+
+        <br><br>
+        <strong>Indicaciones</strong><br>
+        Postquirúrgicos, lesiones traumáticas, enfermedades neurológicas,
+        artrosis, displasia y pacientes geriátricos.
+      </p>
+
+    </div>
+  </div>
+
+  <div class="acerca-servicio reverse">
+    <img src="https://i.imgur.com/ILKVmIx.jpeg" alt="Banda acuática veterinaria">
+
+    <div class="acerca-texto">
+      <h3>Banda acuática</h3>
+      <p>
+        <strong>¿En qué consiste?</strong><br>
+        Terapia de hidroterapia que combina ejercicio y flotabilidad,
+        reduciendo el impacto articular y facilitando el movimiento sin dolor.
+
+        <br><br>
+        <strong>Beneficios principales</strong><br>
+        Mejora la movilidad, fortalece músculos, favorece la rehabilitación
+        postquirúrgica y ayuda al control de peso.
+
+        <br><br>
+        <strong>Ideal para</strong><br>
+        Mascotas con artritis, displasia, sobrepeso, lesiones ortopédicas
+        o en procesos de recuperación funcional.
+      </p>
+
+    </div>
+  </div>
+
+
+  <h3 class="ubicacion-titulo">Nuestra ubicación</h3>
+
+  <div class="map-container">
+    <iframe
+      src="https://www.google.com/maps?q=O3vet+clinica+veterinaria+Bello&output=embed"
+      width="100%"
+      height="450"
+      style="border:0;"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+  </div>
+</section>
+
 
 
   <footer>
