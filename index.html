@@ -355,6 +355,33 @@ footer .footer-column h3 {
   background-color: #fff;  /* opcional, evita huecos feos */
 }
 
+/* Botón Más información */
+.btn-info {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  padding: 10px 14px;
+  margin-top: 12px;
+
+  background-color: transparent;
+  color: #2f6b4f;               /* verde elegante */
+  border: 2px solid #b0c800;    /* verde corporativo */
+
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+.btn-info:hover {
+  background-color: #b0c800;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
 
 
     </style>
@@ -373,11 +400,12 @@ footer .footer-column h3 {
       <button class="menu-toggle" id="menuToggle">☰</button>
 
       <ul class="nav-links" id="navLinks">
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#contacto">Contáctanos</a></li>
-        <li><a href="#acerca">Acerca de</a></li>
-      </ul>
+      <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+      <li><a href="#servicios" class="nav-link"> Servicios</a></li>
+      <li><a href="#acerca" class="nav-link">Acerca</a></li>
+      <li><a href="#contacto" class="nav-link">Contacto</a></li>
+    </ul>
+
     </nav>
   </header>
 
@@ -398,6 +426,7 @@ footer .footer-column h3 {
         <h3>Cirugías</h3>
         <img src="https://i.imgur.com/Ev1cl6R.jpeg" alt="Cirugía veterinaria">
         <p>Procedimientos quirúrgicos con altos estándares de seguridad.</p>
+        <a href="#acerca" class="btn-info nav-link">Más información</a>
         <a href="https://wa.link/loge0q" target="_blank" class="btn-wsp">Consulta virtual</a>
       </div>
 
@@ -412,7 +441,7 @@ footer .footer-column h3 {
         <p>
           Enfoque holístico que combina terapias alternativas y medicina convencional.
         </p>
-
+        <a href="#acerca" class="btn-info nav-link">Más información</a>
         <a href="https://wa.link/gxzjqp" target="_blank" class="btn-wsp">
           Consulta virtual
         </a>
@@ -422,6 +451,7 @@ footer .footer-column h3 {
         <h3>Homeopatía</h3>
         <img src="https://i.imgur.com/1YBJZ01.png" alt="Homeopatía veterinaria">
         <p>Tratamientos naturales que estimulan la capacidad de autocuración.</p>
+        <a href="#acerca" class="btn-info nav-link">Más información</a>
         <a href="https://wa.link/c5sn7j" target="_blank" class="btn-wsp">Consulta virtual</a>
       </div>
 
@@ -429,6 +459,7 @@ footer .footer-column h3 {
         <h3>Acupuntura</h3>
         <img src="https://i.imgur.com/x3RlaNp.png" alt="Acupuntura veterinaria">
         <p>Terapia milenaria para el manejo del dolor y el equilibrio energético.</p>
+        <a href="#acerca" class="btn-info nav-link">Más información</a>
         <a href="https://wa.link/4e595j" target="_blank" class="btn-wsp">Consulta virtual</a>
       </div>
 
@@ -436,6 +467,7 @@ footer .footer-column h3 {
         <h3>Bioenergética</h3>
         <img src="https://i.imgur.com/VX4fnrC.jpeg" alt="Bioenergética veterinaria">
         <p>Evaluación y armonización del campo energético del paciente.</p>
+        <a href="#acerca" class="btn-info nav-link">Más información</a>
         <a href="https://wa.link/b75y9t" target="_blank" class="btn-wsp">Consulta virtual</a>
       </div>
 
@@ -443,6 +475,7 @@ footer .footer-column h3 {
         <h3>Etología</h3>
         <img src="https://i.imgur.com/QSujuwi.jpeg" alt="Etiología veterinaria">
         <p>Análisis profundo del origen de las enfermedades.</p>
+        <a href="#acerca" class="btn-info nav-link">Más información</a>
         <a href="https://wa.link/ljjkwe" target="_blank" class="btn-wsp">Consulta virtual</a>
       </div>
 
@@ -450,6 +483,7 @@ footer .footer-column h3 {
         <h3>Medicina convencional</h3>
         <img src="https://i.imgur.com/sfLlswz.png" alt="Medicina veterinaria">
         <p>Diagnóstico y tratamiento clínico basado en evidencia científica.</p>
+        <a href="#acerca" class="btn-info nav-link">Más información</a>
         <a href="https://wa.link/n203tv" target="_blank" class="btn-wsp">Consulta virtual</a>
       </div>
 
@@ -460,6 +494,7 @@ footer .footer-column h3 {
       <img src="https://i.imgur.com/j4lwd4Y.png" alt="Ozonoterapia veterinaria 2">
 
       <p>Tratamiento terapéutico que mejora la oxigenación y fortalece el sistema inmune.</p>
+      <a href="#acerca" class="btn-info nav-link">Más información</a>
       <a href="https://wa.link/8kjaef" target="_blank" class="btn-wsp">Consulta virtual</a>
     </div>
 
@@ -467,6 +502,7 @@ footer .footer-column h3 {
         <h3>Embolsada con ozono para heridas</h3>
         <img src="https://i.imgur.com/eUjUb5k.jpeg" alt="Embolsada con ozono">
         <p>Tratamiento local con ozono que favorece la cicatrización, controla infecciones y acelera la recuperación de heridas.</p>
+        <a href="#acerca" class="btn-info nav-link">Más información</a>
         <a href="https://wa.link/8kjaef" target="_blank" class="btn-wsp">Consulta virtual</a>
       </div>
 
@@ -476,6 +512,7 @@ footer .footer-column h3 {
         src="https://i.imgur.com/b5v9XNF.jpeg"
         alt="Consulta veterinaria">
         <p>Atención integral para todas las etapas de la vida de tu mascota.</p>
+        <a href="#acerca" class="btn-info nav-link">Más información</a>
         <a href="https://wa.link/pm0m63" target="_blank" class="btn-wsp">Consulta virtual</a>
       </div>
 
@@ -485,6 +522,7 @@ footer .footer-column h3 {
         <h3>Fisioterapia – banda con piscina</h3>
         <img src="https://i.imgur.com/ILKVmIx.jpeg" alt="Fisioterapia veterinaria">
         <p>Rehabilitación física con tecnología acuática especializada.</p>
+        <a href="#acerca" class="btn-info nav-link">Más información</a>
         <a href="https://wa.link/djtemm" target="_blank" class="btn-wsp">Consulta virtual</a>
       </div>
 
@@ -644,7 +682,7 @@ footer .footer-column h3 {
   <script>
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
-    const links = document.querySelectorAll(".nav-links a");
+    const links = document.querySelectorAll(".nav-link");
     const sections = document.querySelectorAll("section");
 
     // Menú móvil
